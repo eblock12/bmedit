@@ -1,0 +1,309 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New...",                     ID_FILE_NEWLEVEL
+        MENUITEM "&Open...",                    ID_FILE_LOADLEVEL
+        MENUITEM "&Save",                       ID_FILE_SAVELEVEL
+        MENUITEM "Save &As...",                 ID_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "&Exit",                       ID_FILE_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "Show &Grid",                  ID_VIEW_SHOWGRID, CHECKED
+    END
+    POPUP "&Level"
+    BEGIN
+        MENUITEM "Insert &Tileset...",          ID_LEVEL_INSERTTILESET
+        MENUITEM "Insert &Object...",           ID_LEVEL_INSERTOBJECT
+        , GRAYED
+        MENUITEM "&Flood Tiles",                ID_LEVEL_FLOODTILES
+        MENUITEM SEPARATOR
+        MENUITEM "&Background color...",        ID_LEVEL_BACKGROUNDCOLOR
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_TILESETS DIALOGEX 0, 0, 90, 265
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Tilesets"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_TILESET_LIST,7,7,76,30,CBS_DROPDOWNLIST | 
+                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_ADD,10,23,30,13
+    PUSHBUTTON      "Del",IDC_DELETE,48,23,30,13,WS_DISABLED
+    CONTROL         "",IDC_TILESET_VIEWER,"TILESET_VIEWER_CLASS",WS_TABSTOP,
+                    7,45,76,181
+    CONTROL         "Horizonal Flip",IDC_FLIP_HORZ,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,231,56,10
+    CONTROL         "Vertical Flip",IDC_FLIP_VERT,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,244,56,10
+END
+
+IDD_NEW DIALOGEX 0, 0, 140, 74
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "New Level"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDC_OK,15,53,50,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,75,53,50,14
+    GROUPBOX        "Base Layer Dimensions",IDC_STATIC,7,7,126,40
+    LTEXT           "X:",IDC_STATIC,30,24,8,8
+    EDITTEXT        IDC_X,89,22,24,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Y:",IDC_STATIC,80,24,8,8
+    EDITTEXT        IDC_Y,39,22,24,12,ES_AUTOHSCROLL | ES_NUMBER
+END
+
+IDD_LAYERS DIALOGEX 0, 0, 170, 111
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Layers"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "&Add...",IDC_ADDLAYER,103,11,54,14
+    PUSHBUTTON      "&Properties...",IDC_PROPERTIES,103,29,54,14
+    PUSHBUTTON      "&Delete",IDC_DELETE,103,47,54,14
+    PUSHBUTTON      "Send &Back",IDC_MOVEUP,103,71,54,14
+    PUSHBUTTON      "Bring &Forward",IDC_MOVEDOWN,103,85,54,14
+    CONTROL         "",IDC_LAYERLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,6,7,92,96
+END
+
+IDD_NEWLAYER DIALOGEX 0, 0, 156, 82
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "New Layer"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDC_OK,18,61,50,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,86,61,50,14
+    GROUPBOX        "Layer Dimensions",IDC_STATIC,7,25,142,28
+    LTEXT           "X:",IDC_STATIC,36,38,8,8
+    EDITTEXT        IDC_Y,95,36,24,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Y:",IDC_STATIC,86,38,8,8
+    EDITTEXT        IDC_X,45,36,24,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Name:",IDC_STATIC,20,9,22,8
+    EDITTEXT        IDC_NAME,42,7,92,13,ES_AUTOHSCROLL
+END
+
+IDD_EDITLAYER DIALOGEX 0, 0, 186, 194
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Edit Layer Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDC_OK,39,173,50,14
+    PUSHBUTTON      "Cancel",IDC_CANCEL,102,173,50,14
+    LTEXT           "Name:",IDC_STATIC,18,11,22,8
+    EDITTEXT        IDC_EDIT1,41,9,124,13,ES_AUTOHSCROLL
+    GROUPBOX        "Layer Dimensions",IDC_STATIC,7,25,172,28
+    LTEXT           "X:",IDC_STATIC,51,38,8,8
+    EDITTEXT        IDC_Y,110,36,24,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Y:",IDC_STATIC,101,38,8,8
+    EDITTEXT        IDC_X,60,36,24,12,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Parallax Scrolling",IDC_STATIC,7,58,172,25
+    CONTROL         "Enable",IDC_PARALLAX,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,68,37,10
+    LTEXT           "Speed:",IDC_STATIC,63,69,24,8,0,WS_EX_RIGHT
+    EDITTEXT        IDC_PARALLAX_SPEED,88,67,27,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "% of base layer",IDC_STATIC,117,69,54,8
+    GROUPBOX        "Automatic Scrolling",IDC_STATIC,7,87,172,39
+    CONTROL         "Enable",IDC_AUTOSCROLL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,97,37,10
+    LTEXT           "X Speed:",IDC_STATIC,63,98,30,8,0,WS_EX_RIGHT
+    EDITTEXT        IDC_AUTOSCROLL_SPEEDX,94,96,27,12,ES_AUTOHSCROLL
+    LTEXT           "tiles/second",IDC_STATIC,124,98,54,8
+    LTEXT           "Y Speed:",IDC_STATIC,63,111,30,8,0,WS_EX_RIGHT
+    EDITTEXT        IDC_AUTOSCROLL_SPEEDY,94,110,27,12,ES_AUTOHSCROLL
+    LTEXT           "tiles/second",IDC_STATIC,124,111,54,8
+    GROUPBOX        "Other Effects",IDC_STATIC,7,129,172,41
+    CONTROL         "Mirror X",IDC_MIRRORX,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,44,140,41,10
+    CONTROL         "Mirror Y",IDC_MIRRORY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,99,140,41,10
+    LTEXT           "Global Alpha:",IDC_STATIC,51,155,43,8,0,WS_EX_RIGHT
+    EDITTEXT        IDC_ALPHA,96,153,27,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "%",IDC_STATIC,126,155,10,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_TILESETS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 83
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 258
+    END
+
+    IDD_NEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 133
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+
+    IDD_LAYERS, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_NEWLAYER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 149
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_EDITLAYER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APPICON             ICON                    "icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "For generating tile based levels for use with Blaster Master and Proteus."
+            VALUE "FileDescription", "Blaster Master Tile Editor Executable"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "BMEdit"
+            VALUE "LegalCopyright", "Copyright (C) 2004"
+            VALUE "OriginalFilename", "BMEdit.exe"
+            VALUE "ProductName", "Blaster Master Tile Editor"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
